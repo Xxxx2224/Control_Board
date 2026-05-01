@@ -1,0 +1,16 @@
+build/
+.cache/
+.settings/
+.mxproject
+*.bak
+*.tmp
+*.log
+compile_commands.json
+.vscode/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.d
+*.su*.ioc

@@ -1,0 +1,3 @@
+[submodule "App/Test/Cpputest"]
+	path = App/Test/Cpputest
+	url = git@github.com:cpputest/cpputest.git
