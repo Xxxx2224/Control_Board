@@ -3,16 +3,21 @@
 
 #include "emc_error.h"
 
+struct PID_controller_s;
 typedef struct PID_controller_s *PID_handle;
 
 typedef struct {
+
   float kp;
   float ki;
   float kd;
 
   float dt;
+
   float output_min;
   float output_max;
+  float integral_limit;
+
 } PID_config;
 
 /**

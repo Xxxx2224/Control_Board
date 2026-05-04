@@ -1,8 +1,9 @@
-add_library(Control INTERFACE)
+add_library(Control)
 
-target_link_libraries(Control INTERFACE Error)
+target_link_libraries(Control PUBLIC Error)
 
-target_sources(Control
+target_sources(Control 
+            PUBLIC Src/PID_controller.c
             PUBLIC
                 FILE_SET HEADERS
                 BASE_DIRS Inc
