@@ -9,13 +9,11 @@ typedef enum {
   ILLEGAL_USE_OF_NULL_PTR, /* Beklenmeyen Null pointer kullanımı (Örn: PID
                               struct'ı boş gelirse) */
   INDEX_OUT_OF_RANGE,      /* Dizi veya tampon bellek aralık dışı erişimi */
-  BELOW_RANGE, /* Hesaplanan değer kabul edilebilir alt sınırın altında (Örn:
-                  PID negatif çıkışı) */
-  ABOVE_RANGE, /* Hesaplanan değer kabul edilebilir üst sınırın üzerinde (Örn:
-                  PID aşımı/windup) */
-  INCONSISTENT_VALUE, /* Mantıksal olarak tutarsız veri (Örn: Kp, Ki, Kd
-                         katsayılarının mantıksız olması) */
-  LIMIT_EXCEEDED,
+  INCONSISTENT_VALUE,      /* Mantıksal olarak tutarsız veri (Örn: Kp, Ki, Kd
+                              katsayılarının mantıksız olması) */
+  LIMIT_EXCEEDED, /* Hesaplanan değer kabul edilebilir alt sınırın altında
+                     (Örn:PID aşımı/windup) */
+  DOUBLE_FREE,
   UNINITIALIZED,       /* Başlatılmamış modül veya değişken kullanımı */
   CATASTROPHIC_FAILURE /* Sistemi anında durduracak seviyede kritik hata */
 
