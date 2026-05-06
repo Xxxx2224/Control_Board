@@ -34,7 +34,7 @@ error_t PID_init(PID_handle *p_handle, const PID_config *p_config);
  * @param handle İşlem yapılacak PID nesnesinin tutamacı (handle).
  * @return error_t Handle geçersiz ise ERR_INVALID_PARAM döner.
  */
-error_t PID_reset(PID_handle handle);
+error_t PID_reset(PID_handle u_handle);
 /**
  * @brief Mevcut bir kontrolcünün parametrelerini çalışma zamanında günceller.
  *
@@ -42,14 +42,14 @@ error_t PID_reset(PID_handle handle);
  * @param p_config Yeni katsayıları içeren yapılandırma işaretçisi.
  * @return error_t Parametreler geçersizse (örn: dt <= 0) hata döner.
  */
-error_t PID_reinit(PID_handle handle, const PID_config *p_config);
+error_t PID_reinit(PID_handle u_handle, const PID_config *p_config);
 /**
  * @brief Kontrolcüyü kapatır, belleği serbest bırakır ve işaretçiyi NULL yapar.
  *
  * @param p_handle Serbest bırakılacak handle işaretçisinin adresi.
  * @return error_t Başarılı bir şekilde kapatıldıysa NO_ERROR döner.
  */
-error_t PID_deinit(PID_handle *handle);
+error_t PID_deinit(PID_handle *p_handle);
 /**
  * @brief Sabit zaman aralıklarında (dt) çağrılan ana hesaplama döngüsü.
  *
@@ -58,6 +58,6 @@ error_t PID_deinit(PID_handle *handle);
  * @param measure Sensörden gelen mevcut ölçüm.
  * @return float Hesaplanan kontrol sinyali çıkışı (u[t]).
  */
-float PID_cycle(PID_handle handle, float setpoint, float measure);
+float PID_cycle(PID_handle u_handle, float setpoint, float measure);
 
 #endif
