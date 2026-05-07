@@ -1,9 +1,7 @@
-add_library(Control)
-
-target_link_libraries(Control PUBLIC Error)
+add_library(Control STATIC)
 
 target_sources(Control 
-            PUBLIC Src/PID_controller.c
+            PRIVATE Src/PID_controller.c
             PUBLIC
                 FILE_SET HEADERS
                 BASE_DIRS Inc
@@ -11,6 +9,5 @@ target_sources(Control
                 Inc/PID_controller.h
             )
 
-
-
+target_link_libraries(Control PUBLIC Error)
 

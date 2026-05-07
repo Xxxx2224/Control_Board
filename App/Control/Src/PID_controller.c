@@ -2,7 +2,7 @@
 #include "emc_error.h"
 #include <stddef.h>
 #include <stdint.h>
-#include <string.h>
+
 #define PID_instance_max 5
 
 /* daha sonra guvenlik amacli structlara imza kontrol kisimlari eklenecek */
@@ -27,7 +27,7 @@ typedef struct PID_controller_s {
 static struct PID_controller_s PID_instance[PID_instance_max] = {0};
 static uint8_t PID_instance_value = 0;
 
-error_t pid_init(PID_handle *p_handle, const PID_config *p_config) {
+emc_error_t PID_init(PID_handle *p_handle, const PID_config *p_config) {
 
   if (p_handle == NULL || p_config == NULL || ((*p_handle) != NULL)) {
     return BAD_PARAMETER;
@@ -82,7 +82,7 @@ error_t pid_init(PID_handle *p_handle, const PID_config *p_config) {
   return NO_ERROR;
 }
 
-error_t PID_deinit(PID_handle *p_handle) {
+emc_error_t PID_deinit(PID_handle *p_handle) {
 
   if (p_handle == NULL || (*p_handle) == NULL) {
     return BAD_PARAMETER;
@@ -127,7 +127,7 @@ error_t PID_deinit(PID_handle *p_handle) {
   return NO_ERROR;
 }
 
-error_t PID_reset(PID_handle u_handle) {
+emc_error_t PID_reset(PID_handle u_handle) {
   if (u_handle == NULL || u_handle->is_active != 1) {
     return BAD_PARAMETER;
   }
@@ -139,7 +139,7 @@ error_t PID_reset(PID_handle u_handle) {
   return NO_ERROR;
 }
 
-error_t PID_reinit(PID_handle u_handle, const PID_config *p_config) {
+emc_error_t PID_reinit(PID_handle u_handle, const PID_config *p_config) {
   if (u_handle == NULL || u_handle->is_active != 1) {
     return BAD_PARAMETER;
   }

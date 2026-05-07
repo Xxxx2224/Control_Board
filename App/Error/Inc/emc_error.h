@@ -17,5 +17,5 @@ typedef enum {
   UNINITIALIZED,       /* Başlatılmamış modül veya değişken kullanımı */
   CATASTROPHIC_FAILURE /* Sistemi anında durduracak seviyede kritik hata */
 
-} error_t;
+} emc_error_t;
 #endif

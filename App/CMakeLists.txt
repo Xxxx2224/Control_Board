@@ -3,9 +3,12 @@ Project(testprj)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_subdirectory(Test/Cpputest)
+
 add_subdirectory(Error)
 add_subdirectory(Control)
+
+add_subdirectory(Test/Cpputest)
+add_subdirectory(Test)
 
 add_executable(test)
 
