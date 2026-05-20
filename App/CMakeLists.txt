@@ -6,6 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(Error)
 add_subdirectory(Control)
+add_subdirectory(Drivers)
 
 add_subdirectory(Test/Cpputest)
 add_subdirectory(Test)
@@ -14,4 +15,4 @@ add_executable(test)
 
 target_sources(test PRIVATE Core/Src/main.c)
 
-target_link_libraries(test PRIVATE CppUTest Error Control) 
+target_link_libraries(test PRIVATE CppUTest Error Control Drivers) 
