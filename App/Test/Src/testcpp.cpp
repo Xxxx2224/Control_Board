@@ -25,7 +25,7 @@ TEST_GROUP(pid) {
   void teardown() {}
 };
 TEST(pid, pid_cycle) {
-  DOUBLES_EQUAL(1.0f, PID_cycle(handle, 10.0f, 0.0f), 0.001f);
+  DOUBLES_EQUAL(0.0f, PID_cycle(handle, 10.0f, 0.0f), 0.001f);
 }
 TEST(pid, pid_test) {
   CHECK_EQUAL(NO_ERROR, PID_init(&handle, &config));

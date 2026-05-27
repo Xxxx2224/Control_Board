@@ -31,7 +31,7 @@ typedef struct {
   volatile uint32_t AFRL;
   volatile uint32_t AFRH;
 
-} h7_gpio_reg;
+} EMC_GPIO_TypeDef;
 
 #ifdef TEST_ENVIRONMENT
 
@@ -45,17 +45,17 @@ extern h7_gpio_reg Virtual_GPIOC;
 
 #else
 
-#define GPIOA ((h7_gpio_reg *)(uintptr_t)0x58020000)
-#define GPIOB ((h7_gpio_reg *)(uintptr_t)0x58020400)
-#define GPIOC ((h7_gpio_reg *)(uintptr_t)0x58020800)
-#define GPIOD ((h7_gpio_reg *)(uintptr_t)0x58020C00)
-#define GPIOE ((h7_gpio_reg *)(uintptr_t)0x58021000)
-#define GPIOF ((h7_gpio_reg *)(uintptr_t)0x58021400)
-#define GPIOG ((h7_gpio_reg *)(uintptr_t)0x58021800)
-#define GPIOH ((h7_gpio_reg *)(uintptr_t)0x58021C00)
-#define GPIOI ((h7_gpio_reg *)(uintptr_t)0x58022000)
-#define GPIOJ ((h7_gpio_reg *)(uintptr_t)0x58022400)
-#define GPIOK ((h7_gpio_reg *)(uintptr_t)0x58022800)
+#define GPIOA ((EMC_GPIO_TypeDef *)(uintptr_t)0x58020000)
+#define GPIOB ((EMC_GPIO_TypeDef *)(uintptr_t)0x58020400)
+#define GPIOC ((EMC_GPIO_TypeDef *)(uintptr_t)0x58020800)
+#define GPIOD ((EMC_GPIO_TypeDef *)(uintptr_t)0x58020C00)
+#define GPIOE ((EMC_GPIO_TypeDef *)(uintptr_t)0x58021000)
+#define GPIOF ((EMC_GPIO_TypeDef *)(uintptr_t)0x58021400)
+#define GPIOG ((EMC_GPIO_TypeDef *)(uintptr_t)0x58021800)
+#define GPIOH ((EMC_GPIO_TypeDef *)(uintptr_t)0x58021C00)
+#define GPIOI ((EMC_GPIO_TypeDef *)(uintptr_t)0x58022000)
+#define GPIOJ ((EMC_GPIO_TypeDef *)(uintptr_t)0x58022400)
+#define GPIOK ((EMC_GPIO_TypeDef *)(uintptr_t)0x58022800)
 #endif
 
 #endif

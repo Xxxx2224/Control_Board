@@ -1,10 +1,10 @@
-add_library(Drivers STATIC)
+add_library(Drivers INTERFACE)
 
 target_sources(Drivers 
-            PRIVATE Gpio/Src/gpio.c
-            PUBLIC
+    INTERFACE Src/emc_gpio.c
+    INTERFACE
                 FILE_SET HEADERS
-                BASE_DIRS Gpio/Inc
+                BASE_DIRS Inc
                 FILES
-                    Gpio/Inc/h755_gpio.h
+                    Inc/emc_h755_gpio.h
             )
