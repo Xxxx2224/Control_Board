@@ -80,5 +80,4 @@ typedef struct {
 #define CPU2_EXTI ((EMC_EXTI_Core_TypeDef *)(uintptr_t)(EXTI_BASE + 0xC0UL))
 
 #endif
-
 #endif
