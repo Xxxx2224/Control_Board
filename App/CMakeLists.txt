@@ -8,7 +8,7 @@ add_subdirectory(Error)
 add_subdirectory(Control)
 add_subdirectory(Drivers) 
 
-target_sources(AppLib INTERFACE Core/Src/main.c)
+target_sources(AppLib INTERFACE )
     target_link_libraries(AppLib INTERFACE Error Control Drivers) 
 
 else()

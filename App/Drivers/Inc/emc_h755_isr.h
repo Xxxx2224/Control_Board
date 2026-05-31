@@ -2,6 +2,7 @@
 #define EMC_H755_ISR_H
 
 #include <stdint.h>
+#include <sys/types.h>
 
 typedef struct {
   volatile uint32_t RTSR1;
@@ -48,7 +49,6 @@ typedef struct {
   volatile uint32_t C2IMR3;
   volatile uint32_t C2EMR3;
   volatile uint32_t C2PR3;
-
 } EMC_EXTI_TypeDef;
 
 typedef struct {
@@ -65,6 +65,55 @@ typedef struct {
   volatile uint32_t PR3;
 } EMC_EXTI_Core_TypeDef;
 
+typedef enum {
+  EMC_EXTI_RISING_OFF = 0,
+  EMC_EXTI_RISING_ON
+} EMC_ExtiRisingEdge_t;
+
+typedef enum {
+  EMC_EXTI_FALLING_OFF = 0,
+  EMC_EXTI_FALLING_ON
+} EMC_ExtiFallingEdge_t;
+
+typedef enum { EMC_EXTI_SWTRIG_ACTIVE = 1 } EMC_ExtiSoftwareTrigger_t;
+
+typedef enum {
+  EMC_EXTI_D3PEND_MASKED = 0,
+  EMC_EXTI_D3PEND_UNMASKED
+} EMC_ExtiD3PendingMask_t;
+
+typedef enum {
+  EMC_EXTI_PCLR_DMA_CH6 = 0,
+  EMC_EXTI_PCLR_DMA_CH7,
+  EMC_EXTI_PCLR_LPTIM4,
+  EMC_EXTI_PCLR_LPTIM5
+} EMC_ExtiPendingClear_t;
+
+typedef enum {
+  EMC_EXTI_INT_MASKED = 0,
+  EMC_EXTI_INT_UNMASKED
+} EMC_ExtiInterruptMask_t;
+
+typedef enum {
+  EMC_EXTI_EVT_MASKED = 0,
+  EMC_EXTI_EVT_UNMASKED
+} EMC_ExtiEventMask_t;
+
+typedef enum {
+  EMC_EXTI_FLAG_RESET = 0,
+  EMC_EXTI_FLAG_SET
+} EMC_ExtiPendingFlag_t;
+
+typedef struct {
+  uint16_t channel;
+  EMC_ExtiRisingEdge_t rising;
+  EMC_ExtiFallingEdge_t falling;
+  EMC_ExtiD3PendingMask_t d3_pending_mask;
+  EMC_ExtiPendingClear_t d3_pending_clear;
+  EMC_ExtiInterruptMask_t int_mask;
+  EMC_ExtiEventMask_t event_mask;
+} EMC_ExtiConfig_t;
+
 #ifndef TEST_ENVIRONMENT
 
 #define EXTI_BASE (0x58000000UL)
@@ -80,4 +129,5 @@ typedef struct {
 #define CPU2_EXTI ((EMC_EXTI_Core_TypeDef *)(uintptr_t)(EXTI_BASE + 0xC0UL))
 
 #endif
+
 #endif
