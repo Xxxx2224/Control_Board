@@ -136,17 +136,26 @@ extern h7_gpio_reg Virtual_GPIOC;
 
 #endif
 
-emc_error_t emc_gpio_init(const EMC_GpioConfig_t *const config);
+emc_error_t emc_gpio_init(EMC_GpioConfig_t *const config);
 
-emc_error_t emc_write_gpio(const EMC_GpioPort_t, EMC_GpioPin_t,
-                           EMC_GpioState_t);
+emc_error_t emc_write_gpio(const EMC_GpioPort_t, const EMC_GpioPin_t,
+                           const EMC_GpioState_t);
 
-emc_error_t emc_read_gpio(const EMC_GpioPort_t, EMC_GpioPin_t, uint16_t *state);
+emc_error_t emc_read_gpio(const EMC_GpioPort_t, EMC_GpioPin_t,
+                          EMC_GpioState_t *state);
 
 emc_error_t emc_toggle_gpio(const EMC_GpioPort_t, const EMC_GpioPin_t);
 
-emc_error_t emc_register_write_gpio_ioctl(uint32_t adress, uint32_t value);
+emc_error_t emc_W_register_write_gpio_ioctl(uint32_t adress, uint32_t value);
 
-emc_error_t emc_register_read_gpio_ioctl(uint32_t adress);
+emc_error_t emc_RW_register_write_gpio_ioctl(uint32_t adress, uint32_t value,
+                                             uint8_t bit_start,
+                                             uint8_t bit_width);
+
+emc_error_t emc_register_read_gpio_ioctl(uint32_t adress, uint32_t *data,
+                                         uint32_t bit_start,
+                                         uint32_t bit_widtht);
+
+void gpioledpe1(void);
 
 #endif
